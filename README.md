@@ -1,7 +1,7 @@
 # basketPlayerScraper
-## Español
+## EspaÃ±ol
 
-Extrea datos estadísticos de jugadores de distintas ligas profesionales de balonesto
+Extrea datos estadÃ­sticos de todos los jugadores de ligas profesionales ACB y Lega de basketball
 
 Para ejecutar el script es necesario instalar la siguientes bibliotecas:
 ```
@@ -15,13 +15,13 @@ python main.py --startSeason 2019 --endSeason 2020 --league acb
 ```
 
 Donde **startSeason** es la temporada de inicio y **endSeason** es la temporada de fin de las que se van a extraer los datos. 
-**league** determina de que liga profesional se extraen los datos, sólo ser permite por el momento acb (liga española) y lega (liga italiana).
+**league** determina de que liga profesional se extraen los datos, sÃ³lo ser permite por el momento acb (liga espaÃ±ola) y lega (liga italiana).
 Los registros se almacenan en un archivo de tipo CSV, con el nombre "players_league_startSeason_endSeason.csv".
 
 El csv tiene los siguientes campos:
 
 * 'league': Liga de la que se extraen los datos
-* 'game_date': Fecha en la que se jugó el partido,
+* 'game_date': Fecha en la que se jugÃ³ el partido,
 * 'local_team': Nombre del equipo local
 * 'local_team_points': Puntos del equipo local
 * 'visit_team': Nombre del equipo visitante
