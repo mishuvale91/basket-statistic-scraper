@@ -1,0 +1,39 @@
+ACB (España)
+
+* Partidos jugados por temporada
+
+http://acb.com/club/partidos/id/{team_id}/temporada_id/{season_id}/filtro_id/4 
+
+id <------ id del equipo
+temporada_id/2018 <--- año de la temporada
+
+filtro_id/1  <----Todos los partidos
+filtro_id/4  <--- Partidos jugados
+
+
+* Estadísticas de un partido:
+
+http://acb.com/partido/estadisticas/id/18640
+
+
+* Datos de un jugador:
+
+http://www.acb.com/jugador/temporada-a-temporada/id/20200452
+
+
+
+Lega ( Italia)
+
+* Datos de un Partido: 
+
+	http://web.legabasket.it/game/1672526/
+
+Partidos por temporada:
+
+	http://web.legabasket.it/team/tbd.phtml?club=MIO&type=d1&from=2018&j1=0&j2=0&t=3
+
+club = MIO <----- Equipo
+from= 2018 <----- Temporada
+t=3 <------ Partidos sólo de casa
+
+
