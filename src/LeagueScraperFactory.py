@@ -16,6 +16,7 @@ class ScraperFactory:
     def __init__(self, logger):
         self.logger = logger
         
+    #   Return a instace for a leagueScraper.    
     def getInstance(self, league):
         
         factory = None
@@ -25,6 +26,6 @@ class ScraperFactory:
         elif league == LEGA:
             factory = LegaScraper()
         else: 
-            self.logger.error("The factory not exists, valid factorys are: acb,...")
+            self.logger.error("The factory not exists, valid factorys are: acb, lega")
                
         return factory

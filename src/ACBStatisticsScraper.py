@@ -29,26 +29,32 @@ class ACBScraper:
     def __init__(self):
         self.logger = utils.getLogger('ACBScrapper')
 
+    #   Check if it is a row that contains player data.
     def isPlayer(self, fields):
         return len(fields)>5 and fields[1].text!='Total'  and fields[1].text!='Equipo' and fields[1].text!='Equipo'
-    
+ 
+    #   Check if the value is a not valid data.    
     def isEmptyField(self, value):
         return value == None or value =='\xa0'
-    
-    def getField(self, fields, row):
-        field = fields[row].text
+
+    #   Return the value of the column if it is a valid value or a empty string
+    #   in other case.
+    def getField(self, fields, col):
+        field = fields[col].text
         if self.isEmptyField(field):
                 return ''
             
         return field
-    
+
+    #   Split in get and make fields the field of shots values get/make 
     def splitPlayerShots(self, shots):
         shots_split = ['0','0']
         if shots !='':
             shots_split = shots.split('/')
     
         return shots_split
-            
+
+    #   Extract the player data of a row.        
     def getPlayerData(self, fields):
             field_list = []
             
@@ -85,7 +91,8 @@ class ACBScraper:
             field_list.append(faults_receibed)
            
             return field_list
-                    
+
+    #   Return the players data for a team in a game            
     def getTeamPlayer(self, game_data, team):
         players_list= []
 
@@ -97,7 +104,8 @@ class ACBScraper:
                 players_list.append(game_data + player_data)
         
         return players_list     
-    
+
+    #   Return the players data in a game.    
     def getGamePlayers(self, game_id):
         game_data = []
         local_players = []
@@ -127,7 +135,8 @@ class ACBScraper:
             visit_players = self.getTeamPlayer(game_data, teams[1])
          
         return local_players + visit_players
-     
+ 
+    #   Return the games played for a team in a season
     def getTeamGames(self, team_id, season):
         url = GAMES_URL.format(team_id, season)
         response= utils.getRequest(url, self.logger)
@@ -145,7 +154,8 @@ class ACBScraper:
                         games_ids.append(my_team.a.get('href').split('/')[4])
                   
         return games_ids
-    
+ 
+    #   Return the teams for a season
     def getSeasonTeams(self, season):
         url = SEASON_TEAMS_URL.format(season)
         response = utils.getRequest(url, self.logger)
@@ -160,7 +170,7 @@ class ACBScraper:
             
         return teams_ids
         
-     
+    #  Return de players data for a season.    
     def getSeasonPlayers(self, season):
         
         player_list = []
